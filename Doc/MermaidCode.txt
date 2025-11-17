@@ -9,11 +9,12 @@ classDiagram
 
     class Media {
     <<abstract>>
-    Media : +string title
-    Media: +Burrow()
-    Media: +Return()
-    Media: +Download()
-    Media: +Rate()
+    -string title
+    -int rating
+    +Burrow()
+    +Return()
+    +Download()
+    +Rate()
     }
     class Ebook{
       -string author
@@ -77,7 +78,7 @@ classDiagram
     User <|-- Borrower
     User <|-- Employee
     User <|-- Admin
-    
+
     class User {
     <<abstract>>
     -string name
@@ -90,4 +91,18 @@ classDiagram
         +SelectPreveiwDetails()
         +RateItem()
         +InteractWithMedia()
+    }
+    class Employee {
+        +AddMedia()
+        +RemoveMedia()
+    }  
+
+    class Admin {
+        +AddMedia()
+        +RemoveMedia()
+        +VeiwMedia()
+        +AddBorrowerOrEmployee()
+        +RemoveBorrowerOrEmployee()
+        +VeiwBorrowerOrEmployee()
+
     }
