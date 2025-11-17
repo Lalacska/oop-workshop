@@ -1,4 +1,27 @@
 classDiagram
+
+class librarySystem {
+    + void LogIn()
+    + void Browse()
+    + int PrintMediaInformation()
+    + bool Borrow()
+    + bool Rate()
+    + bool Download()
+    + bool InteractWithMedia()
+}
+class IDomain {
+<<interface>>
+
+}
+librarySystem --> MediaCollection
+librarySystem --> User
+
+class MediaCollection {
+    Media[] library
+    Media GetMediaFromID()
+}
+MediaCollection --> Media
+
     Media <|-- Ebook
     Media <|-- Image
     Media <|-- Movie
@@ -9,12 +32,16 @@ classDiagram
 
     class Media {
     <<abstract>>
-    -string title
-    -int rating
-    +Burrow()
-    +Return()
-    +Download()
-    +Rate()
+    - string title
+    - int[] ratings
+    - bool isAvalible
+    + void Burrow()
+    + void Return()
+    + Media Download()
+    + void Rate()
+    + string GetInformation()
+    + bool IsAvalible() 
+    + int[] GetRatings()
     }
     class Ebook{
       -string author
@@ -22,7 +49,6 @@ classDiagram
       -int numberOfPages
       -int yearOfPublication
       -int ISBN
-      +View()
       +Read()
     }
      class Image{
@@ -78,7 +104,7 @@ classDiagram
     User <|-- Borrower
     User <|-- Employee
     User <|-- Admin
-
+User --> MediaCollection
     class User {
     <<abstract>>
     -string name
