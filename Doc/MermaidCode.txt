@@ -32,16 +32,17 @@ MediaCollection --> Media
 
     class Media {
     <<abstract>>
+    - int ID
     - string title
     - int[] ratings
     - bool isAvalible
-    + void Burrow()
-    + void Return()
-    + Media Download()
-    + void Rate()
-    + string GetInformation()
-    + bool IsAvalible() 
-    + int[] GetRatings()
+    + void Borrow(int ID)
+    + void Return(int ID)
+    + void Download(int ID)
+    + void Rate(int rating)
+    + string GetInformation(int ID)
+    + bool IsAvalible(int ID) 
+    + int[] GetRatings(int ID)
     }
     class Ebook{
       -string author
@@ -52,7 +53,7 @@ MediaCollection --> Media
       +Read()
     }
      class Image{
-      -string resolution
+      -int[2] resolution
       -string fileFormat
       -double fileSize
       -DateTime dateTaken
@@ -121,8 +122,7 @@ User --> MediaCollection
     class Employee {
         +AddMedia()
         +RemoveMedia()
-    }  
-
+    }
     class Admin {
         +AddMedia()
         +RemoveMedia()
@@ -130,5 +130,14 @@ User --> MediaCollection
         +AddBorrowerOrEmployee()
         +RemoveBorrowerOrEmployee()
         +VeiwBorrowerOrEmployee()
-
+    }
+    DataMananger ..|> IData
+    MediaCollection --> IData
+    class IData{
+        + Save(string fileName)
+        + Getfile(string fileName)
+    }
+    class DataMananger{
+        + Save(string fileName)
+        + Getfile(string fileName)
     }
