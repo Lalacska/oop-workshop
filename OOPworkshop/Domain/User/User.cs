@@ -4,14 +4,24 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using OOPworkshop.Domain.Media;
 
 namespace OOPworkshop.Domain.User
 {
+    public class UserDatabase 
+    {
+        List<User> userDatabase;
+        public UserDatabase() { userDatabase = new List<User>(); }
+        public void AddUser(User user) { userDatabase.Add(user); }
+        public void RemoveUser(User user) { userDatabase.Remove(user); }
+        public void GetUser(User user) { }
+    }
     public abstract class User
     {
-        string name;
-        int age;
-        int socialSecurityNumber;
+        protected MediaCollection mediaCollection;
+        protected string name;
+        protected int age;
+        protected int socialSecurityNumber;
 
         public User(string name, int age, int socialSecurityNumber)
         {
@@ -25,14 +35,28 @@ namespace OOPworkshop.Domain.User
     {
         public Borrower(string name, int age, int socialSecurityNumber)
             : base(name, age, socialSecurityNumber) { }
-        void ListMediaByType()
-        { }
-        void PreveiwMedia(Media media)
+        void ListMediaByType<T>(T MediaType)
         {
-            Console.WriteLine(media.GetInformation());
+            foreach (Media media in mediaCollection.libary) 
+            { 
+                if(media.GetType() == MediaType)
+                    Console.WriteLine(media.ToString());
+            }
         }
-        void RateMedia(Media media)
+        void PreveiwMedia(int ID)
         {
+            Console.WriteLine(mediaCollection.FindMedia(ID).ToString());
+        }
+        void RateMedia(int ID, int rating)
+        {
+            if (rating == null || rating < 0 || rating > 10)
+                Console.WriteLine("Rating must be between 1-10");
+            else
+                mediaCollection.FindMedia(ID).Rate(rating);
+        }
+        void InteractWithMedia(int ID)
+        {
+            media = mediaCollection.FindMedia(ID);
             switch (media)
             {
                 case media == Media.Ebook:
@@ -58,20 +82,33 @@ namespace OOPworkshop.Domain.User
                     break;
             }
         }
-        void InteractWithMedia()
-        {
-
-        }
     }
     public class Employee : User
     {
         public Employee(string name, int age, int socialSecurityNumber)
             : base(name, age, socialSecurityNumber) { }
-
+        void AddMedia(int ID)
+        {
+            mediaCollection.AddMedia(ID);
+        }
+        void RemoveMedia(int ID)
+        {
+            mediaCollection.RemoveMedia(ID);
+        }
     }
     public class Admin : User
     {
         public Admin(string name, int age, int socialSecurityNumber)
             : base(name, age, socialSecurityNumber) { }
+        void AddMedia (int ID) 
+        { 
+            mediaCollection.AddMedia(ID);
+        }
+        void RemoveMedia(int ID) 
+        { 
+            mediaCollection.RemoveMedia(ID);
+        }
+        void ViewMedia() { }
+        void AddUser() { }
     }
 }

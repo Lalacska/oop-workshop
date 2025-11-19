@@ -10,7 +10,6 @@
   <ItemGroup>
     <Folder Include="Domain\Media\" />
     <Folder Include="Data\" />
-    <Folder Include="Domain\User\" />
     <Folder Include="Presentation\" />
   </ItemGroup>
 
