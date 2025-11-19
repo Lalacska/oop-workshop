@@ -1,18 +1,27 @@
 classDiagram
+class Website{
 
-class librarySystem {
-    + void LogIn()
-    + void Browse()
+}
+Website --> librarySystem
+class IDomain {
+<<interface>>
++ void LogIn()
     + int PrintMediaInformation()
     + bool Borrow()
     + bool Rate()
     + bool Download()
     + bool InteractWithMedia()
 }
-class IDomain {
-<<interface>>
-
+librarySystem ..|> IDomain
+class librarySystem {
+    + void LogIn()
+    + int PrintMediaInformation()
+    + bool Borrow()
+    + bool Rate()
+    + bool Download()
+    + bool InteractWithMedia()
 }
+
 librarySystem --> MediaCollection
 librarySystem --> User
 
@@ -30,8 +39,8 @@ MediaCollection --> Media
     Media <|-- App
     Media <|-- Podcast
 
-    class Media {
-    <<abstract>>
+class Media {
+<<abstract>>
     - int ID
     - string title
     - int[] ratings
@@ -135,11 +144,13 @@ User --> MediaCollection
     MediaCollection --> IData
     class IData{
         + Save(string fileName)
-        + Getfile(string fileName)
+        + GetFile(string fileName)
+        + DeleteFile (string fileName)
     }
     class DataMananger{
         + Save(string fileName)
-        + Getfile(string fileName)
+        + GetFile(string fileName)
+        + DeleteFile (string fileName)
     }
 
 Link:https://mermaid.live/edit#pako:eNqtV9tu2zgQ_RVBT1n4gsR2DNswAiRxWghoUsPuttjW-0BLY5moRAok5dR18-87pO4XN9nFJoBjnrnozOGQo5xsl3tgz2w3IFIuKPEFCTdsw8zaCuhWEHFcH6WC0DptmIU_HevAqWd94L7DLv6oYHeCP0soQMqUtRT4-QgeJQ7bcRESRXkpbst5YN1xgZE1cEUU1KAFf2YBJ14NdpgCQVz1haq9eZK2v2RFOAseEso0_fmcatcdceHmRpeJTtUae70by6S450EAruba5vKnBFHIVAvIhDLwt78zFUug9R4SSd4JHjqLlG49Tc5FP6mInf_q9awHLPx7A3VC4kMDfeQH2kTXnPkN8DP1gL8nYdP9Nooa2JJ7LpEqo1cSI5NgPidbqfTeaL010jNN4SyyFVop8y1FVQAlD5RNYKcwX2ag2Wkqbw8E9cx8s75L-ifJXG3JFahYsFZT3k2tcbr7tCGhkRtTvriB5XauZUi6Mueama3SucACMccqqbEa_1KW02x0qibKkD6exGrPRR0NCPPjvAMQ12lZHG5BfNwt0SArliMQjcfbgLok6fSS1VnfPWVAZwXFoUvppfxMy53Kkd8GuHcgeRBXcqYcdzSAd0a33OJxpADGsqY_C_YL3IJPNATL01_Id8iTdRZURgE5XrQpZtq9oZhHBR6rpmY-MFEVTEAARMJfqM6rAqfUvVhUBOx8Icrdt7LTx-70exIp6PIw4uaeqeISP5qoVu_TMXqV2rlSOstzeuZ3wttoR7qf5L7EsOi1VSJtLQSPgoyjiAsFHrJQ-ljJf8UXl_eoVgDJxGgpAq-vU12aAwjZokyzgLfQPNPEnYcf4MbFIKuQSu_P0xvbDwnsuVSyCfsxlHGdBiIqcbQ_mdP_qpgfKI42dkbOEm8995K7P7lys9QF_oBx_AhQx2-9kKLUBmgdsoUsxuf8AElrYPmUMvXm1ZjVmruUBGuUXlB1LIvQcTxgiu7aez2rysr3JBXHwcl_d9QHTBYqoW0NuoClgAPQ5wUoQoOqg54jOrgCtr6wNK_-VMoKmVvPq0Sk13PID3A-kxH_P6Ux-GesrYliikyujyLj2pLvFSed_LwLloFjgDwSRvStZ_X7v25wUiLU_r6UmrI3P1yUq7bW5AAXpRvzCZuoTEbPZI23-OTvk2U-_1fyzAcfYndtX1DPnikRQ9cOAWelXtrmWRtb7QEb357hVw92JA7UxkZ2GBYR9pXzMIsUPPb39mxHAomrONJTNH3Dz12AeSDuecyUPRtPTQp7drJ_2LOrQX86mU7G09HVaDgeDyeDrn20Z73RdX80uLq-HI0n-DscjkYvXfuneexlf3p5fT2ejAaXEwycDkddG7cIh-5j-k-G_vPyD7A35AE
