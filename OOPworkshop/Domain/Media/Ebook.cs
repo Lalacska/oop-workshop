@@ -22,6 +22,7 @@ namespace OOPworkshop.Domain.Media
             this.numberOfPages = numberOfPages;
             this.yearOfPublication = yearOfPublication;
             this.ISBN = ISBN;
+        }
 
         public void Read()
         {
