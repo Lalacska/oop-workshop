@@ -8,7 +8,7 @@ namespace OOPworkshop.Domain.Media
 {
     public class MediaCollection
     {
-        Dictionary<int, Media> library;
+        public Dictionary<int, Media> library;
         public MediaCollection() { library = new Dictionary<int, Media>(); }
         Media GetMedia(int ID)
         {

@@ -25,7 +25,11 @@ namespace OOPworkshop.Domain.Media
 
         public void Watch()
         {
-
+            Console.WriteLine("Now you can watch the movie");
+        }
+        public override string ToString()
+        {
+            return "Title of movie: " + GetTitle() + " Director: " + director + " Genre: " + genre + " Release year: " + releaseYear + " Language: " + language + " Duration: " + duration;
         }
     }
 

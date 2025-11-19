@@ -26,7 +26,7 @@ namespace OOPworkshop.Domain.Media
         }
         public override string ToString()
         {
-            return "Title of app: " + "Version: " + "SupportedPlatforms: " + "File size: ";
+            return "Title of app: "+ GetTitle() + " Version: " +version+ " SupportedPlatforms: " +supportedPlatforms+ " File size: " + fileSize;
         }
     }
 }
