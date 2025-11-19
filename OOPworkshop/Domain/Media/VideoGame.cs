@@ -25,11 +25,15 @@ namespace OOPworkshop.Domain.Media
 
         public void Play()
         {
-
+            Console.WriteLine("Play the game");
         }
         public void Complete()
         {
-
+            Console.WriteLine("Congratulations! You completed the game"); 
+        }
+        public override string ToString()
+        {
+            return "Title of videogame: " + GetTitle() + " Publisher: " + publisher + " Year of release: " + yearOfRelease + " Genre: " + genre + " Supported platforms: " + supportedPlatforms + " Language: " + language; 
         }
     }
 }

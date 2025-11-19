@@ -34,7 +34,7 @@ namespace OOPworkshop.Domain.Media
 
         public override string ToString()
         {
-            return "Title of book: " + GetTitle() + "Author: " + author + "Number of pages: " + numberOfPages+  " Language: " +language+ "Year of publication: " +yearOfPublication+ "ISBN: " + ISBN;
+            return "Title of book: " + GetTitle() + " Author: " + author + " Number of pages: " + numberOfPages+  " Language: " +language+ " Year of publication: " +yearOfPublication+ " ISBN: " + ISBN;
         }
     }
 }

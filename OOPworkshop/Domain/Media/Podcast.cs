@@ -24,11 +24,15 @@ namespace OOPworkshop.Domain.Media
         }
         public void Listen()
         {
-
+            Console.WriteLine("Listen to the podcast now");
         }
         public void Complete()
         {
-
+            Console.WriteLine("You have now completed the podcast"); 
+        }
+        public override string ToString()
+        {
+            return "Title of podcast: " + GetTitle() + " Episodenumber: " + episodeNumber + " Hosts: " + hosts + " Guests: " + guests + " Releaseyear: " + releaseYear + " Language: " + language;
         }
     }
 }

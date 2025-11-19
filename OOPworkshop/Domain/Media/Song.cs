@@ -27,7 +27,11 @@ namespace OOPworkshop.Domain.Media
 
         public void Play()
         {
-
+            Console.WriteLine("Play the song now");
+        }
+        public override string ToString()
+        {
+            return "Title of song: " + GetTitle() + " Composer: " + composer + " Singer: " + singer + " Genre: " + genre + " Duration: " + duration + " Language: " + language + " File type: " + fileType;
         }
     }
 }
