@@ -3,10 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OOPworkshop.Domain.Media;
 
 namespace OOPworkshop.Domain.User
 {
-    internal class UserDatabase
+    public class UserDatabase
     {
+        protected Dictionary<int, User> users;
+        protected UserDatabase() { users = new Dictionary<int, User>(); }
+        protected void AddUser(int SSN, User user) { users.Add(SSN, user); }
+        protected void RemoveUser(int SSN) { users.Remove(SSN); }
+        protected User GetUser(int SSN)
+        {
+            if (users.TryGetValue(SSN, out User user))
+                return user;
+            else
+                return null;
+        }
     }
 }
