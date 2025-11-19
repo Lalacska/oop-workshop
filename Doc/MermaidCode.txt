@@ -1,0 +1,108 @@
+classDiagram
+    Media <|-- Ebook
+    Media <|-- Image
+    Media <|-- Movie
+    Media <|-- Song
+    Media <|-- VideoGame
+    Media <|-- App
+    Media <|-- Podcast
+
+    class Media {
+    <<abstract>>
+    -string title
+    -int rating
+    +Burrow()
+    +Return()
+    +Download()
+    +Rate()
+    }
+    class Ebook{
+      -string author
+      -string language
+      -int numberOfPages
+      -int yearOfPublication
+      -int ISBN
+      +View()
+      +Read()
+    }
+     class Image{
+      -string resolution
+      -string fileFormat
+      -double fileSize
+      -DateTime dateTaken
+      +Display()
+    }
+    class Movie{
+      -string director
+      -string genre
+      -int releaseYear
+      -string language
+      -double duration
+      +Watch()
+    }
+    class Song{
+      -string genre
+      -string composer
+      -string singer
+      -string fileType
+      -double duration
+      -string language
+      +Play()
+    }
+    class VideoGame{
+      -string genre
+      -string publisher
+      -int yearOfRelease
+      -string[] supportedPlatforms
+      -string language
+      +Play()
+      +Complete()
+
+    }
+    class App{
+      -double version
+      -string publisher
+      -string[] supportedPlatforms
+      -double fileSize
+      +Execute()
+    }
+    class Podcast{
+      -int releaseYear
+      -string[] hosts
+      -string[] guests
+      -int episodeNumber
+      -string language
+      +Listen()
+      +Complete()
+    }
+    User <|-- Borrower
+    User <|-- Employee
+    User <|-- Admin
+
+    class User {
+    <<abstract>>
+    -string name
+    -int age
+    -int SocialSecurityNumber
+    +Identify()
+    }
+    class Borrower {
+        +ListItemByTypes()
+        +SelectPreveiwDetails()
+        +RateItem()
+        +InteractWithMedia()
+    }
+    class Employee {
+        +AddMedia()
+        +RemoveMedia()
+    }  
+
+    class Admin {
+        +AddMedia()
+        +RemoveMedia()
+        +VeiwMedia()
+        +AddBorrowerOrEmployee()
+        +RemoveBorrowerOrEmployee()
+        +VeiwBorrowerOrEmployee()
+
+    }
