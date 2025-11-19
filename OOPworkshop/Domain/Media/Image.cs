@@ -13,7 +13,7 @@ namespace OOPworkshop.Domain.Media
         private double fileSize;
         private DateTime dateTaken;
 
-        public Image(int[] resolution, string fileFormat, double fileSize, DateTime dateTaken)
+        public Image(int ID, string title, int[] ratings, bool isAvailable, int[] resolution, string fileFormat, double fileSize, DateTime dateTaken) : base(ID, title, ratings, isAvailable)
         {
             this.resolution = resolution;
             this.fileFormat = fileFormat;
@@ -23,7 +23,11 @@ namespace OOPworkshop.Domain.Media
 
         public void Display()
         {
-
+            Console.WriteLine("Displaying image...");
+        }
+        public override string ToString()
+        {
+            return "Title of image: " + GetTitle() + " Resolution: " + resolution + " File format: " + fileFormat + " File size: " + fileSize + " Date taken: " + dateTaken;
         }
 
     }

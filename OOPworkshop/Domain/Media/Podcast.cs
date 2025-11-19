@@ -14,7 +14,7 @@ namespace OOPworkshop.Domain.Media
         private int episodeNumber;
         private string language;
 
-        public Podcast(int releaseYear, string[] hosts, string[] guests, int episodeNumber, string language)
+        public Podcast(int ID, string title, int[] ratings, bool isAvailable, int releaseYear, string[] hosts, string[] guests, int episodeNumber, string language) : base(ID, title, ratings, isAvailable)
         {
             this.releaseYear = releaseYear;
             this.hosts = hosts;

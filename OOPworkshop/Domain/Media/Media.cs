@@ -9,11 +9,18 @@ namespace OOPworkshop.Domain.Media
 {
     public abstract class Media
     {
-        private int ID;
-        private string title;
-        private int[] ratings;
-        private bool isAvailable;
+        public int ID;
+        public string title;
+        public int[] ratings;
+        public bool isAvailable;
 
+        public Media(int ID, string title, int[] ratings, bool isAvailable)
+        { 
+            this.ID = ID;
+            this.title = title;
+            this.ratings = ratings;
+            this.isAvailable = isAvailable;
+        }
         public void Borrow(int ID)
         {
             this.ID = ID;
@@ -42,6 +49,10 @@ namespace OOPworkshop.Domain.Media
         public int GetRating(int ID)
         {
             this.ID = ID;
+        }
+        public string GetTitle(Media media)
+        {
+            return title;
         }
     }
 }

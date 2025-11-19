@@ -14,7 +14,7 @@ namespace OOPworkshop.Domain.Media
         private string[] supportedPlatforms;
         private string language; 
 
-        public VideoGame(string genre, string publisher, int yearOfRelease, string[] supportedPlatforms, string language)
+        public VideoGame(int ID, string title, int[] ratings, bool isAvailable, string genre, string publisher, int yearOfRelease, string[] supportedPlatforms, string language) : base(ID, title, ratings, isAvailable)
         {
             this.genre = genre;
             this.publisher = publisher;
