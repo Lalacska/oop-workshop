@@ -10,7 +10,7 @@ namespace OOPworkshop.Domain.User
     public class UserDatabase
     {
         protected Dictionary<int, User> users;
-        protected UserDatabase() { users = new Dictionary<int, User>(); }
+        public UserDatabase() { users = new Dictionary<int, User>(); }
         protected void AddUser(int SSN, User user) { users.Add(SSN, user); }
         protected void RemoveUser(int SSN) { users.Remove(SSN); }
         protected User GetUser(int SSN)

@@ -12,7 +12,7 @@ namespace OOPworkshop.Domain.User
         public Employee(string name, int age) : base(name, age) { }
         void AddMedia(int ID)
         {
-            mediaCollection.AddMedia(ID);
+            .AddMedia(ID);
         }
         void RemoveMedia(int ID)
         {
