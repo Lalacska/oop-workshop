@@ -10,8 +10,8 @@ namespace OOPworkshop.Domain.User
 {
     public class UserDatabase 
     {
-        List<User> userDatabase;
-        public UserDatabase() { userDatabase = new List<User>(); }
+        Dictionary<int,User> userDatabase;
+        public UserDatabase() { userDatabase = new Dictionary<int, User>(); }
         public void AddUser(User user) { userDatabase.Add(user); }
         public void RemoveUser(User user) { userDatabase.Remove(user); }
         public void GetUser(User user) { }
