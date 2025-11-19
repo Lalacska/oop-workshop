@@ -13,7 +13,7 @@ namespace OOPworkshop.Domain.Media
         private string[] supportedPlatforms;
         private double fileSize; 
 
-        public App(double version, string publisher, string[] supportedPlatforms, double fileSize)
+        public App(int ID, string title, int[] ratings, bool isAvailable, double version, string publisher, string[] supportedPlatforms, double fileSize) : base(ID, title, ratings, isAvailable)
         {
             this.version = version;
             this.publisher = publisher;
@@ -22,7 +22,11 @@ namespace OOPworkshop.Domain.Media
         }
         public void Execute()
         {
-
+            Console.WriteLine("You can now execute the app");
+        }
+        public override string ToString()
+        {
+            return "Title of app: " + "Version: " + "SupportedPlatforms: " + "File size: ";
         }
     }
 }

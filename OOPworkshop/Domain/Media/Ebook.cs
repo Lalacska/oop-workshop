@@ -12,25 +12,28 @@ namespace OOPworkshop.Domain.Media
         private string language;
         private int numberOfPages;
         private int yearOfPublication;
-        private int ISBN; 
+        private int ISBN;
 
 
-        public Ebook(string author, string language, int numberOfPages, int yearOfPublication, int iSBN)
+        public Ebook(int ID, string title, int[] ratings, bool isAvailable, string author, string language, int numberOfPages, int yearOfPublication, int ISBN) : base(ID, title, ratings, isAvailable)
         {
             this.author = author;
             this.language = language;
             this.numberOfPages = numberOfPages;
             this.yearOfPublication = yearOfPublication;
-            this.ISBN = iSBN;
-        }
+            this.ISBN = ISBN;
 
         public void Read()
         {
-
+            if (isAvailable == true)
+            {
+                Console.WriteLine("You can now read the book");
+            }
         }
+
         public override string ToString()
         {
-
+            return "Title of book: " + GetTitle() + "Author: " + author + "Number of pages: " + numberOfPages+  " Language: " +language+ "Year of publication: " +yearOfPublication+ "ISBN: " + ISBN;
         }
     }
 }

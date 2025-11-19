@@ -14,7 +14,7 @@ namespace OOPworkshop.Domain.Media
         private string language;
         private double duration; 
 
-        public Movie(string director, string genre, int releaseYear, string language, double duration)
+        public Movie(int ID, string title, int[] ratings, bool isAvailable, string director, string genre, int releaseYear, string language, double duration) : base(ID, title, ratings, isAvailable)
         {
             this.director = director;
             this.genre = genre;
