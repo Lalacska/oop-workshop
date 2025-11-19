@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OOPworkshop.Domain.Media;
+using OOPworkshop.Domain.LibrarySystem;
 
 namespace OOPworkshop.Domain.User
 {
@@ -12,11 +13,7 @@ namespace OOPworkshop.Domain.User
         public Borrower(string name, int age) : base(name, age) { }
         void ListMediaByType<T>(T MediaType)
         {
-            foreach (Media media in MediaCollection.libary)
-            {
-                if (media.GetType() == MediaType)
-                    Console.WriteLine(media.ToString());
-            }
+            LibrarySystem.media
         }
         void PreveiwMedia(int ID)
         {

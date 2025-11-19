@@ -5,12 +5,14 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using OOPworkshop.Domain.Media;
+using OOPworkshop.Domain.LibrarySystem;
 
 namespace OOPworkshop.Domain.User
 {
     public abstract class User
     {
-        protected MediaCollection mediaCollection;
+        LibrarySystem system = LibrarySystem.Instance;
+        var media = system.mediacollection;
         protected string name;
         protected int age;
 

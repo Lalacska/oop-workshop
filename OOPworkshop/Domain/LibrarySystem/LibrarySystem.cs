@@ -8,10 +8,14 @@ using OOPworkshop.Domain.Media;
 
 namespace OOPworkshop.Domain.LibrarySystem
 {
-    class LibrarySystem
+    public class LibrarySystem
     {
-        MediaCollection mediaCollection;
-        UserDatabase userDatabase;
+        private static LibrarySystem _instance = new LibrarySystem();
+        public static LibrarySystem Instance => _instance;
+
+        public MediaCollection mediaCollection { get; }
+        public UserDatabase userDatabase { get; }
+
         public LibrarySystem () 
         { 
             mediaCollection = new MediaCollection ();
